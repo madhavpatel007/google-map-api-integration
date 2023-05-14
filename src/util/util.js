@@ -14,3 +14,18 @@ export const removeNullValueObjects = (arr) => {
   }
   return finalArr;
 };
+
+export const polygonOptions = {
+  drawingMode: "polygon",
+  drawingControl: true,
+  drawingControlOptions: {
+    drawingModes: ["polygon"],
+  },
+  polygonOptions: {
+    fillColor: "#f00",
+    fillOpacity: 0.5,
+    strokeColor: "#f00",
+    strokeOpacity: 1,
+    strokeWeight: 2,
+  },
+};

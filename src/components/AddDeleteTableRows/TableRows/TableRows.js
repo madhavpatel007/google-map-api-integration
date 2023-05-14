@@ -27,7 +27,7 @@ function TableRows(props) {
             className="btn btn-outline-danger"
             onClick={() => deleteTableRows(index)}
           >
-            x
+            X
           </button>
         </td>
       </tr>
