@@ -2,8 +2,7 @@ import { useState } from "react";
 import TableRows from "./TableRows/TableRows";
 import { removeNullValueObjects } from "../../util/util";
 import { displayToast } from "../../util/toastUtil";
-import "./AddDeleteTableRows.css"
-import CoOrdinatesList from "../CoOrdinatesList/CoOrdinatesList";
+import "./AddDeleteTableRows.css";
 
 function AddDeleteTableRows(props) {
   const { passCoOrdinatedToMap } = props;
@@ -72,7 +71,9 @@ function AddDeleteTableRows(props) {
           />
         </tbody>
       </table>
-      <button className="btn-submit" onClick={() => submitCoOrdinates()}>SUBMIT</button>
+      <button className="btn-submit" onClick={() => submitCoOrdinates()}>
+        SUBMIT
+      </button>
     </>
   );
 }

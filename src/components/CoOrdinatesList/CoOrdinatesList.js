@@ -1,7 +1,7 @@
 import React from "react";
 
 function CoOrdinatesList(props) {
-  const { coOrdinates, totalArea } = props;
+  const { coOrdinates, totalArea, className } = props;
   const tableRows = [];
 
   for (let i = 0; i < coOrdinates.length; i++) {
@@ -17,7 +17,7 @@ function CoOrdinatesList(props) {
   const displayCoOrdinates = () => {
     return (
       <>
-        <table border={5}>
+        <table border={5} className={className}>
           <thead>
             <th>No.</th>
             <th>LAT</th>

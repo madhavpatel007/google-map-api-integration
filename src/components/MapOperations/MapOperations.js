@@ -5,20 +5,14 @@ import React, {
   useRef,
   useState,
 } from "react";
-import {
-  DrawingManager,
-  GoogleMap,
-  LoadScript,
-  Polygon,
-  useLoadScript,
-} from "@react-google-maps/api";
-import "./CustomGoogleMap.css";
+import { useLoadScript } from "@react-google-maps/api";
+import "./MapOperations.css";
 import CoOrdinatesList from "../CoOrdinatesList/CoOrdinatesList";
 import AddDeleteTableRows from "../AddDeleteTableRows/AddDeleteTableRows";
 import { displayToast } from "../../util/toastUtil";
-import { polygonOptions } from "../../util/util";
+import CustomGoogleMap from "./CustomGoogleMap/CustomGoogleMap";
 
-function CustomGoogleMap() {
+function MapOperations() {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
     libraries: ["drawing", "geometry"],
@@ -94,19 +88,7 @@ function CustomGoogleMap() {
             />
             I want to add co-ordinates manually
           </div>
-          <div className="google-map-container">
-            <GoogleMap
-              mapContainerClassName="google-map"
-              center={center}
-              zoom={12}
-            >
-              <Polygon editable draggable path={path} ref={polygonRef} />
-              <DrawingManager
-                options={polygonOptions}
-                onPolygonComplete={(value) => getPaths(value)}
-              />
-            </GoogleMap>
-          </div>
+          <CustomGoogleMap getPaths={getPaths} path={path} />
         </>
       )}
       <div className="tables">
@@ -117,11 +99,11 @@ function CustomGoogleMap() {
           />
         )}
         {path && path.length > 0 && (
-          <CoOrdinatesList coOrdinates={path} totalArea={totalArea} />
+          <CoOrdinatesList className="coordinates-list" coOrdinates={path} totalArea={totalArea} />
         )}
       </div>
     </>
   );
 }
 
-export default CustomGoogleMap;
+export default MapOperations;
